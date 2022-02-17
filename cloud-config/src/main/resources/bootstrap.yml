@@ -1,0 +1,23 @@
+
+server:
+  port: 10010
+
+spring:
+  application:
+    #指定当前服务名字
+    name: nacos-config
+  ##指定环境
+  profiles:
+    active: server-dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.92.145:80
+        name: ${spring.application.name}
+        namespace: 65cc6807-1077-44c9-aabe-289a2d4c5be2
+        file-extension: yml
+        group: DEFAULT_GROUP
+
+
+
+
