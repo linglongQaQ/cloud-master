@@ -11,6 +11,8 @@
     <module>cloud-config</module>
     <module>cloud-regist</module>
     <module>cloud-consumer</module>
+    <module>cloud-common</module>
+    <module>cloud-getway</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -25,6 +27,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+    <knife4j.version>2.0.7</knife4j.version>
+    <commons-lang.version>2.6</commons-lang.version>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
@@ -52,10 +56,6 @@
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
@@ -71,6 +71,21 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
     </dependency>
+
+    <!--  swagger依赖  -->
+    <dependency>
+      <groupId>com.github.xiaoymin</groupId>
+      <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+      <version>${knife4j.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${commons-lang.version}</version>
+    </dependency>
+
 
     <dependency>
       <groupId>junit</groupId>

@@ -10,4 +10,7 @@ public interface NacosFeignClient {
 
     @GetMapping("regist/say")
     String say(@RequestParam  String name);
+
+    @GetMapping("regist/buy")
+    String buy();
 }

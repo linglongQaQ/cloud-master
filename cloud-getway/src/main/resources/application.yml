@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nacos-getway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.168.1.13:10011
+        namespace: 65cc6807-1077-44c9-aabe-289a2d4c5be2
+    gateway:
+      routes:
+        - id: nacos-consumer
+          uri: lb://nacos-consumer
+          predicates:
+            - Path=/consumer/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
+
+        - id: nacos-regist
+          uri: lb://nacos-regist
+          predicates:
+          - Path=/regist/**
+          filters:
+            # 去掉路由前缀，访问 localhost：8088/test/v2/api 转发的就是 localhost:8089/v2/api
+            # 1 : 代表剥离路径的个数
+          - SwaggerHeaderFilter
+          - StripPrefix=1
