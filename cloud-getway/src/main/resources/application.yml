@@ -14,17 +14,17 @@ spring:
         - id: nacos-consumer
           uri: lb://nacos-consumer
           predicates:
-            - Path=/consumer/**
+            - Path=/consumer1/**
           filters:
-            - SwaggerHeaderFilter
+#            - SwaggerHeaderFilter
             - StripPrefix=1
 
         - id: nacos-regist
           uri: lb://nacos-regist
           predicates:
-          - Path=/regist/**
+          - Path=/regist1/**
           filters:
             # 去掉路由前缀，访问 localhost：8088/test/v2/api 转发的就是 localhost:8089/v2/api
             # 1 : 代表剥离路径的个数
-          - SwaggerHeaderFilter
+#          - SwaggerHeaderFilter
           - StripPrefix=1
